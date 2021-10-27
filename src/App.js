@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import ModalComponent from "./BootstrapModal/index";
+import BuySomething from "./BuySomething/index";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [isVisible, setIsVisible] = useState(false);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setIsVisible(true);
+  //   }, 2000);
+  // }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container bg-primary">
+      <BuySomething />
+      <ModalComponent
+        isVisible={isVisible}
+        isSuccess
+        status={"success"}
+        description={"Kullanıcı başari ile silindi."}
+      />
     </div>
   );
 }
